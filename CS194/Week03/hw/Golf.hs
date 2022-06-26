@@ -24,7 +24,7 @@ module Golf where
     skips list = map (nthElements list) (indices list)
 
     localMaxima :: [Integer] -> [Integer]
-    localMaxima (x1:(x2:(x3:xs))) = case x2 > x1 && x2 > x3 of
+    localMaxima (x1:(x2:(x3:xs))) = case x2 > x1 && x2 > x3 of -- FIXME use guards
         True -> x2:(localMaxima (x2:(x3:xs)))
         False -> (localMaxima (x2:(x3:xs)))
     localMaxima _ = []
